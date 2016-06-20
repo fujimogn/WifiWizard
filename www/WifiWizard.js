@@ -4,7 +4,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *  Unless required by applicable law or agreed to in writing, software
  *  distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,6 +16,7 @@
 /*
  * This is the interface for the WifiWizard Phonegap plugin.
  */
+'use strict';
 
 var WifiWizard = {
 
@@ -248,7 +249,7 @@ var WifiWizard = {
         }
         cordova.exec(win, fail, 'WifiWizard', 'getConnectedSSID', []);
     },
-    
+
     getCurrentBSSID: function(win, fail) {
         if (typeof win != "function") {
             console.log("getCurrentSSID first parameter must be a function to handle SSID.");
@@ -291,5 +292,6 @@ var WifiWizard = {
         cordova.exec(win, fail, 'WifiWizard', 'setWifiEnabled', [enabled]);
     }
 };
-
-module.exports = WifiWizard;
+if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.exports === exports){
+  module.exports = WifiWizard;
+}
